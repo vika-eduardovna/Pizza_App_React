@@ -14,7 +14,7 @@ export default function Header() {
               <p>Delicious pizza ever...</p>
             </div>
           </div>
-          <div class="header__cart">
+          <div className="header__cart">
             <a href="/cart.html" class="button button--cart">
               <span>11.5$</span>
               <div className="button__delimiter"></div>

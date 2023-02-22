@@ -1,4 +1,5 @@
 import React from 'react'
+import './categories.scss'
 
 export default function Categories() {
   return (
@@ -9,6 +10,7 @@ export default function Categories() {
             <li>Vegan</li>
             <li>Grill</li>
             <li>Chili</li>
+            <li>Closed</li>
         </ul>
     </div>
   )
