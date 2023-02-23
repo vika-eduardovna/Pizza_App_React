@@ -1,10 +1,10 @@
 import React from 'react'
-import './sort.scss'
+import '../scss/components/_sort.scss'
 
 export default function Sort() {
     return (
         <div className="sort">
-            <div className="sort__label">
+            <div className="label">
                 <svg
                     width="10"
                     height="6"

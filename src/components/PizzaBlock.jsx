@@ -1,5 +1,5 @@
 import React from 'react'
-import './pizza_block.scss'
+import '../scss/components/_pizza-block.scss'
 
 export default function PizzaBlock() {
     return (
@@ -9,20 +9,20 @@ export default function PizzaBlock() {
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
                 alt="Pizza"
             />
-            <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+            <h4 className="pizza-block__title">Cheeseburger-pizza</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    <li className="active">тонкое</li>
-                    <li>традиционное</li>
+                    <li className="active">thin</li>
+                    <li>traditional</li>
                 </ul>
                 <ul>
-                    <li className="active">26 см.</li>
-                    <li>30 см.</li>
-                    <li>40 см.</li>
+                    <li className="active">26 cm.</li>
+                    <li>30 cm.</li>
+                    <li>40 cm.</li>
                 </ul>
             </div>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от 395 ₽</div>
+                <div className="pizza-block__price">from 12$</div>
                 <div className="button button--outline button--add">
                     <svg
                         width="12"
@@ -36,7 +36,7 @@ export default function PizzaBlock() {
                             fill="white"
                         />
                     </svg>
-                    <span>Добавить</span>
+                    <span>Add</span>
                     <i>2</i>
                 </div>
             </div>
