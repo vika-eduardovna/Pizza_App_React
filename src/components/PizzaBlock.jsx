@@ -1,7 +1,12 @@
 import React from 'react'
 import '../scss/components/_pizza-block.scss'
 
-export default function PizzaBlock({id, title, imageUrl, types, sizes, price, category, rating}) {
+export default function PizzaBlock({ title, imageUrl, types, sizes, price, category, rating }) {
+    const [activeType, setActiveType] = React.useState(0);
+    const [activeSize, setactiveSize] = React.useState(0);
+
+    const typeNames = ['thin-crust', 'traditional'];
+
     return (
         <div className="pizza-block">
             <img
@@ -12,13 +17,28 @@ export default function PizzaBlock({id, title, imageUrl, types, sizes, price, ca
             <h4 className="pizza-block__title">{title}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    <li className="active">thin</li>
-                    <li>traditional</li>
+                    {
+                        types.map((type, i) => (
+                            <li
+                                className={activeType === type ? 'active' : ''}
+                                onClick={() => setActiveType(type)}
+                                key={i}>
+                                {typeNames[type]}
+                            </li>
+                        ))
+                    }
                 </ul>
                 <ul>
-                    <li className="active">26 cm.</li>
-                    <li>30 cm.</li>
-                    <li>40 cm.</li>
+                    {
+                        sizes.map((size, i) => (
+                            <li
+                                key={i}
+                                className={activeSize === size ? 'active' : ''}
+                                onClick={() => setactiveSize(size)}
+                            >{size} cm
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
             <div className="pizza-block__bottom">
