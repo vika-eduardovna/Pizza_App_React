@@ -1,5 +1,6 @@
 import React from 'react'
-import '../scss/components/_pizza-block.scss'
+import '../../scss/components/_pizza-block.scss'
+import Skeleton from './Skeleton';
 
 export default function PizzaBlock({ title, imageUrl, types, sizes, price, category, rating }) {
     const [activeType, setActiveType] = React.useState(0);
