@@ -1,13 +1,20 @@
 import React from 'react'
 import '../scss/components/_sort.scss'
 
-export default function Sort() {
+export default function Sort({ sortType, onClickSortType }) {
     const [isVisible, setisVisible] = React.useState(false);
-    const [selected, setSelected] = React.useState(0);
-    const list = ['popular', 'price', 'title'];
+    const list = [
+        { name: 'popular (DESC)', sortProperty: 'rating' },
+        { name: 'popular (ASC)', sortProperty: '-rating' },
+        { name: 'price (DESC)', sortProperty: 'price' },
+        { name: 'price (ASC)', sortProperty: '-price' },
+        { name: 'title (DESC)', sortProperty: 'title' },
+        { name: 'title (ASC)', sortProperty: '-title' },
+    ];
+
 
     const onClickListItem = i => {
-        setSelected(i);
+        onClickSortType(i);
         setisVisible(false)
     }
 
@@ -27,18 +34,21 @@ export default function Sort() {
                     />
                 </svg>
                 <b>sort by:</b>
-                <span onClick={() => setisVisible(!isVisible)}>{list[selected]}</span>
+                <span onClick={() => setisVisible(!isVisible)}>{sortType.name}</span>
             </div>
             {
                 isVisible && (
                     <div className="sort__popup">
                         <ul>
                             {
-                                list.map((el, i) => (
+                                list.map((obj, i) => (
                                     <li
-                                        onClick={() => onClickListItem(i)}
-                                        className={selected === i ? "active" : ''}
-                                        key={i}>{el}</li>
+                                        key={i}
+                                        onClick={() => onClickListItem(obj)}
+                                        className={sortType.sortProperty === obj.sortProperty ? "active" : ''}
+                                    >
+                                        {obj.name}
+                                    </li>
                                 ))
                             }
                         </ul>
