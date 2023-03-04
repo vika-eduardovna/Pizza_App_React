@@ -3,7 +3,7 @@ import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
-import  '../scss/app.scss'
+import '../scss/app.scss'
 
 export default function Home() {
     const [items, setItems] = useState([]);
@@ -14,21 +14,24 @@ export default function Home() {
             .then(res => res.json())
             .then(json => setItems(json));
         setIsLoading(!isLoading);
+        window.scrollTo(0, 0);
     }, []); //empty array is component did mount
 
     return (
         <>
-            <div className="content_top">
-                <Categories />
-                <Sort />
-            </div>
-            <h2 className="title">All pizzas</h2>
-            <div className="items">
-                {
-                    isLoading
-                        ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-                        : items.map(el => <PizzaBlock key={el.id} {...el} />)
-                }
+            <div className="container">
+                <div className="content_top">
+                    <Categories />
+                    <Sort />
+                </div>
+                <h2 className="title">All pizzas</h2>
+                <div className="items">
+                    {
+                        isLoading
+                            ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+                            : items.map(el => <PizzaBlock key={el.id} {...el} />)
+                    }
+                </div>
             </div>
         </>
     )

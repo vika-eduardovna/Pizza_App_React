@@ -1,4 +1,7 @@
 import React from 'react'
+import minIcon from '../assets/img/Vector_min.svg'
+import plusIcon from '../assets/img/Vector_plus.svg'
+import removeIcon from '../assets/img/remove_icon.svg'
 
 export default function CartItem() {
     return (
@@ -16,11 +19,11 @@ export default function CartItem() {
             </div>
             <div className="cart__item-count">
                 <div className="button button--outline button--circle cart__item-count-minus">
-                    {/*<% include ../../../public/img/plus.svg %> */}
+                    <img src={minIcon} alt="min" />
                 </div>
                 <b>2</b>
                 <div className="button button--outline button--circle cart__item-count-plus">
-                    {/*<% include ../../../public/img/plus.svg %> */}
+                    <img src={plusIcon} alt="plus" />
                 </div>
             </div>
             <div className="cart__item-price">
@@ -28,7 +31,7 @@ export default function CartItem() {
             </div>
             <div className="cart__item-remove">
                 <div className="button button--outline button--circle">
-                    {/*<% include ../../../public/img/plus.svg %> */}
+                    <img src={removeIcon} alt="remove" />
                 </div>
             </div>
         </div>

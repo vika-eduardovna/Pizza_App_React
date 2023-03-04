@@ -12,7 +12,7 @@ export default function EmptyCart() {
                         To order pizza, go to the home page.
                     </p>
                     <img src={empty_logo} />
-                    <a href="/" class="button button--black">
+                    <a href="/" className="button button--black">
                         <span>Go back</span>
                     </a>
                 </div>
