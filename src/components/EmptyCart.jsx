@@ -1,5 +1,5 @@
 import React from 'react'
-import empty_logo from '../assets/img/shopping-cart-colour 1.svg'
+import empty_logo from '../assets/icons/shopping-cart-colour 1.svg'
 
 export default function EmptyCart() {
     return (

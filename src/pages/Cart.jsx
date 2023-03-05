@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import cartIcon from '../assets/img/shopping-cart.svg'
-import trashIcon from '../assets/img/trash.svg'
-import arrowBack from '../assets/img/grey_arrow.svg'
+import cartIcon from '../assets/icons/shopping-cart.svg'
+import trashIcon from '../assets/icons/trash.svg'
+import arrowBack from '../assets/icons/grey_arrow.svg'
 import CartItem from '../components/CartItem'
 
 export default function Cart() {

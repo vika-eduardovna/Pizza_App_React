@@ -16,7 +16,7 @@ export default function Home() {
         const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
         const sortBy = sortType.sortProperty.replace('-', '');
         const category_id = categoryId > 0 ? `category=${categoryId}` : '';
-        
+
         fetch(
             `https://63ff2b80571200b7b7d749c8.mockapi.io/pizzas?${category_id}&sortBy=${sortBy}&order=${order}`
         )

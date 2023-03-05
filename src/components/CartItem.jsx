@@ -1,7 +1,7 @@
 import React from 'react'
-import minIcon from '../assets/img/Vector_min.svg'
-import plusIcon from '../assets/img/Vector_plus.svg'
-import removeIcon from '../assets/img/remove_icon.svg'
+import minIcon from '../assets/icons/Vector_min.svg'
+import plusIcon from '../assets/icons/Vector_plus.svg'
+import removeIcon from '../assets/icons/remove_icon.svg'
 
 export default function CartItem() {
     return (
