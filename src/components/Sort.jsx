@@ -1,7 +1,11 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSort } from '../redux/slices/filterSlice';
 import '../scss/components/_sort.scss'
 
-export default function Sort({ sortType, onClickSortType }) {
+export default function Sort() {
+    const dispatch = useDispatch();
+    const sort = useSelector(state => state.filter.sort)
     const [isVisible, setisVisible] = React.useState(false);
     const list = [
         { name: 'popular (DESC)', sortProperty: 'rating' },
@@ -14,7 +18,7 @@ export default function Sort({ sortType, onClickSortType }) {
 
 
     const onClickListItem = i => {
-        onClickSortType(i);
+        dispatch(setSort(i));
         setisVisible(false)
     }
 
@@ -34,7 +38,7 @@ export default function Sort({ sortType, onClickSortType }) {
                     />
                 </svg>
                 <b>sort by:</b>
-                <span onClick={() => setisVisible(!isVisible)}>{sortType.name}</span>
+                <span onClick={() => setisVisible(!isVisible)}>{sort.name}</span>
             </div>
             {
                 isVisible && (
@@ -45,7 +49,7 @@ export default function Sort({ sortType, onClickSortType }) {
                                     <li
                                         key={i}
                                         onClick={() => onClickListItem(obj)}
-                                        className={sortType.sortProperty === obj.sortProperty ? "active" : ''}
+                                        className={sort.sortProperty === obj.sortProperty ? "active" : ''}
                                     >
                                         {obj.name}
                                     </li>

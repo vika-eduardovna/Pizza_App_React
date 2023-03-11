@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
-import '../scss/app.scss'
+import { setCategoryId } from '../redux/slices/filterSlice';
 import Pagination from '../components/Pagination';
+import '../scss/app.scss'
+
 
 export default function Home({ searchValue }) {
+    const categoryId = useSelector(state => state.filter.categoryId);
+    const dispatch = useDispatch();
+    const sortType = useSelector(state => state.filter.sort.sortProperty);
+
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [categoryId, setCategoryId] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
-    const [sortType, setSortType] = useState({ name: 'popular', sortProperty: 'rating' });
+
 
     useEffect(() => {
         setIsLoading(true);
-        const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
-        const sortBy = sortType.sortProperty.replace('-', '');
+        const order = sortType.includes('-') ? 'asc' : 'desc';
+        const sortBy = sortType.replace('-', '');
         const category_id = categoryId > 0 ? `category=${categoryId}` : '';
         const search = searchValue ? `&search=${searchValue}` : '';
 
@@ -30,6 +36,7 @@ export default function Home({ searchValue }) {
             })
         window.scrollTo(0, 0)
     }, [categoryId, sortType, searchValue, currentPage]); //empty array is component did mount
+
 
     // this search function is able for static array only
     // const pizzas = items
@@ -46,10 +53,8 @@ export default function Home({ searchValue }) {
 
                     <Categories
                         value={categoryId}
-                        onClickCategory={(i) => setCategoryId(i)} />
-                    <Sort
-                        sortType={sortType}
-                        onClickSortType={(i) => setSortType(i)} />
+                        onClickCategory={(id) => dispatch(setCategoryId(id))} />
+                    <Sort />
 
                 </div>
                 <h2 className="title">All pizzas</h2>
@@ -58,7 +63,7 @@ export default function Home({ searchValue }) {
                         isLoading ? skeletons : pizzas
                     }
                 </div>
-                <Pagination onChangePage = {number => setCurrentPage(number)}/>
+                <Pagination onChangePage={number => setCurrentPage(number)} />
             </div>
         </>
     )
