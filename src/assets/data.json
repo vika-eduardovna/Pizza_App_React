@@ -98,5 +98,47 @@
     "price": 15,
     "category": 5,
     "rating": 7
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://static.pizzasushiwok.ru/images/menu_new/629-300.jpg",
+    "title": "Mashrooms and ham",
+    "types": [0,1],
+    "sizes": [26,30,40],
+    "price": 15,
+    "category": 5,
+    "rating": 7
+   },
+
+   {
+    "id": 11,
+    "imageUrl": "https://static.pizzasushiwok.ru/images/menu_new/9-300.jpg",
+    "title": "Classic meat",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 13.5,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://static.pizzasushiwok.ru/images/menu_new/9-300.jpg",
+    "title": "Vegetable mix",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 13.5,
+    "category": 5,
+    "rating": 6
+  },
+
+  {
+    "id": 13,
+    "imageUrl": "https://static.pizzasushiwok.ru/images/menu_new/588-300.jpg",
+    "title": "Four Species",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 12.5,
+    "category": 1,
+    "rating": 9
   }
 ]
