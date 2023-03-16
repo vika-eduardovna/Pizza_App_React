@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -26,12 +27,10 @@ export default function Home({ searchValue }) {
         const category_id = categoryId > 0 ? `category=${categoryId}` : '';
         const search = searchValue ? `&search=${searchValue}` : '';
 
-        fetch(
-            `https://63ff2b80571200b7b7d749c8.mockapi.io/pizzas?page=${currentPage}&limit=4&${category_id}&sortBy=${sortBy}&order=${order}${search}`
-        )
-            .then(res => res.json())
-            .then(json => {
-                setItems(json);
+        axios
+            .get(`https://63ff2b80571200b7b7d749c8.mockapi.io/pizzas?page=${currentPage}&limit=4&${category_id}&sortBy=${sortBy}&order=${order}${search}`)
+            .then(res => {
+                setItems(res.data);
                 setIsLoading(false);
             })
         window.scrollTo(0, 0)

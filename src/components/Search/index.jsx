@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import searchIcon from '../../assets/icons/search_icon.svg'
 import closeIcon from '../../assets/icons/close_icon.svg'
 import s from './Search.module.scss'
 
 export default function Search({ searchValue, setSearchValue }) {
-    
+    const inputRef = useRef();
+    const onClickClear = () => {
+        setSearchValue('');
+        inputRef.current.focus();
+    }
+
     return (
         <div className={s.root}>
             <img
@@ -12,6 +17,7 @@ export default function Search({ searchValue, setSearchValue }) {
                 src={searchIcon}
                 alt="search" />
             <input
+                ref={inputRef}
                 value={searchValue}
                 onChange={e => setSearchValue(e.target.value)}
                 className={s.input}
@@ -19,7 +25,7 @@ export default function Search({ searchValue, setSearchValue }) {
                 placeholder='search pizza...' />
             {
                 searchValue && <img
-                    onClick={() => setSearchValue('')}
+                    onClick={onClickClear}
                     className={s.close_icon}
                     src={closeIcon}
                     alt="close" />
