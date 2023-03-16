@@ -5,19 +5,18 @@ import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
-import { setCategoryId } from '../redux/slices/filterSlice';
+import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
 import Pagination from '../components/Pagination';
 import '../scss/app.scss'
 
 
 export default function Home({ searchValue }) {
     const categoryId = useSelector(state => state.filter.categoryId);
-    const dispatch = useDispatch();
+    const currentPage = useSelector(state => state.filter.currentPage);
     const sortType = useSelector(state => state.filter.sort.sortProperty);
-
+    const dispatch = useDispatch();
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState(1);
 
 
     useEffect(() => {
@@ -62,7 +61,9 @@ export default function Home({ searchValue }) {
                         isLoading ? skeletons : pizzas
                     }
                 </div>
-                <Pagination onChangePage={number => setCurrentPage(number)} />
+                <Pagination
+                    currentPage={currentPage}
+                    onChangePage={number => dispatch(setCurrentPage(number))} />
             </div>
         </>
     )
